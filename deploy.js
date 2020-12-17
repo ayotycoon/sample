@@ -4,10 +4,9 @@
 const path = require('path')
 const { writeFileSync } = require('fs');
 const { execSync } = require('child_process');
-const commitMessage = new Date().toISOString()
 
 
-function init (){
+function init(commitMessage){
    
       const   cd = "cd " + (__dirname + ' && ')
     
@@ -18,7 +17,7 @@ function init (){
     // run commit
 
     execSync(cd +`git commit -m "${commitMessage}"`)
-    execSync(cd +`git push origin master`)
+    execSync(cd +`git push -f origin master`)
 
 
 }
